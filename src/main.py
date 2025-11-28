@@ -6,21 +6,22 @@ from dataparser import (
     export_outputs
 )
 
-# Detecta automaticamente a pasta raiz do projeto (volta de src/ para o diretório pai)
+# Main Path
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 RAW_FOLDER = os.path.join(PROJECT_ROOT, "data", "raw")
 PROCESSED_FOLDER = os.path.join(PROJECT_ROOT, "data", "processed")
 
-K_T = 0.28  # seu valor experimental
-B_T = 2.2
+# Linear Regression
+K_T = 0.28 # Slope
+B_T = 2.2  # Intercept
 
 def process_all_files():
     print("RAW_FOLDER =", RAW_FOLDER)
     print("PROCESSED_FOLDER =", PROCESSED_FOLDER)
 
     if not os.path.isdir(RAW_FOLDER):
-        raise FileNotFoundError(f"❌ Pasta não encontrada: {RAW_FOLDER}")
+        raise FileNotFoundError(f" Folder not found: {RAW_FOLDER}")
 
     os.makedirs(PROCESSED_FOLDER, exist_ok=True)
 
